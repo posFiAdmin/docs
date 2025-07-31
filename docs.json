@@ -1,68 +1,49 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Positions Finance",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#FF613B",
+    "light": "#FFB84C",
+    "dark": "#0A0A0A"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "introduction/what-is-positions-finance",
+              "introduction/why-use-positions-finance",
+              "introduction/proof-of-collateral"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Getting Started",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "getting-started/turn-assets-into-collateral",
+              "getting-started/borrow-money-market",
+              "getting-started/leverage-loops"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Protocol Overview",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "protocol-overview/vaults",
+              "protocol-overview/lend-borrow-market",
+              "protocol-overview/leverage-loops",
+              "protocol-overview/proof-of-collateral",
+              "protocol-overview/liquidation-mechanics"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Resources",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "resources/audits",
+              "resources/branding"
             ]
           }
         ]
@@ -96,7 +77,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:team@positions.finance"
       }
     ],
     "primary": {
@@ -119,9 +100,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/positionsfi",
+      "github": "https://github.com/positions-finance",
+      "linkedin": "https://linkedin.com/company/positions"
     }
   }
 }
