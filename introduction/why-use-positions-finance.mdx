@@ -4,37 +4,34 @@ description: "Key benefits and advantages of the Positions Finance"
 icon: "chart-line"
 ---
 
-Why use Positions Finance?
-For Users (Retail & DeFi-Native)
-Unlock Yield and Liquidity Simultaneously: No more tradeoffs between earning yield in vaults and needing liquid funds for new opportunities. Assets locked with Positions remain productive and instantly available as borrowing collateral.
+## Why Use Positions Finance?
 
-Composability & Portability: Proof-of-Collateral tracks balances and health in real time; users can access multiple protocols (e.g., borrowing/lending, perps, or cross-chain markets) without ever moving their underlying.
+Positions Finance is designed for users, protocols, and integrators who need to maximize the utility and productivity of staked, yield-bearing, or otherwise locked assets—without sacrificing rewards or duplicating capital across DeFi.
 
-Operational Efficiency: Borrow, leverage, or collateralize instantly without wrapping, bridging, or capital fragmentation. Portfolio exposure is trackable in one place.
+## Key Advantages
 
-For Developers / Protocols
-Integrate Credible On-Chain Collateral: Accept Proof-of-Collateral natively as security in your money markets, perpetual venues, or derivative platforms.
+### 1. Composable Collateral, Not Fragmented Capital
 
-Reduce Risk, Increase Liquidity: All collateral is actively yield-bearing. Risk logic and liquidation are managed by Positions, reducing duplicative risk management for integrators.
+- Assets deposited into Positions-enabled vaults instantly become composable collateral: they can be used wherever the protocol is integrated, with no need to unstake, re-wrap, or provide excess liquidity elsewhere.
+- Collateral eligibility is maintained in real time. If your balance or yield grows, your borrowing/lending power updates automatically across the ecosystem.
 
-Cross-Ecosystem Capital Flow: Protocols can tap the cumulative collateral across Berachain apps and other supported chains.
+### 2. Continuous Yield with Uninterrupted Liquidity
 
-For Investors / Stakeholders
-Expanded TAM (Total Addressable Market): Increased capital efficiency draws more user deposits and protocols, leading to a healthier, more networked ecosystem.
+- Your staked or productive assets do not stop accruing rewards just because you want to access liquidity or margin.
+- Positions' design ensures deposited assets always remain productive, and users retain full access to earned rewards for as long as their assets are held—and can simultaneously use these as live collateral.
 
-Protocol Sustainability: The flywheel of yield + collateral utility attracts sophisticated actors seeking both passive and composable yield.
+### 3. Unified Portfolio Health and Real-Time Risk Management
 
-Proof-of-Collateral: Core Concept
-At the technical core, every user’s protocol state—deposits, active loans, and available collateral—is maintained in real time by the Proof-of-Collateral mechanism. Proof-of-Collateral can be presented and verified by other protocols using Positions' relayer network and on-chain proof logic.
+- All collateral, debt, and eligible leverage are tracked via a single, always-updated position profile.
+- Users never need to cross-reference multiple contracts, tokens, or dashboards to understand their borrowing, risk, and liquidation status—everything is consolidated.
+- Every protocol operation (borrow, leverage, withdraw, repay) validates risk and eligibility using the live system state, so you cannot inadvertently over-borrow or become under-collateralized without protocol intervention and visible alerts.
 
-How it functions:
+### 4. Seamless Composability and Integration Potential
 
-When a user deposits assets to a vault, the Proof-of-Collateral is updated to reflect both the principal and the accrued yield.
+- Any DeFi protocol (money market, perps, options, margin clearinghouse) can reference a user’s composable collateral profile, with no additional capital bridges or collateral re-deposits.
+- For protocols, this means onboarding more users and liquidity instantly: composable collateral can serve wherever the integration is coded for it—on the native chain first, with planned expansion to cross-chain contexts.
 
-Any borrowing or leverage events deduct from borrowable collateral in real time.
+### 5. Permissionless and Transparent
 
-The Proof-of-Collateral serves as the user’s gateway to initiate borrowing and compose across other protocols that trust Positions’ collateral accounting.
-
-The state is always on-chain, queryable, transparent, and enforceable by protocols and DAOs, not by Position’s centralized logic.
-
-[Diagram: User lifecycle—Deposit → Proof-of-Collateral → Borrow/Leverage/Compose → Repay/Withdraw.]
+- All eligibility, limits, and health checks operate entirely from on-chain data—no allowlists, approvals, or arbitrary admin checks.
+- Risk logic, LTV ratios, and eligibility rules are enforced by the protocol, not hidden away in off-chain or upgradable contracts. All users and integrators can read and verify the rules and their own status at any time.
