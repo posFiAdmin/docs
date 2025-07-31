@@ -3,3 +3,31 @@ title: "Liquidation Mechanics"
 description: "Understanding liquidation processes and risk management"
 icon: "flag"
 ---
+
+Liquidation is a critical safeguard in Positions Finance, protecting both the protocol and its users from undercollateralized risk. The system is designed so that liquidations are automated, fully transparent, and enforced by protocol logic—ensuring that only those positions actually at risk are ever affected.
+
+### How Liquidation Works: Technical Overview
+
+**1. Health Factor Monitoring**
+
+- The protocol continually calculates a health factor for each user using their latest Proof-of-Collateral (PoC) data.
+- Health factor is a real-time metric:
+
+  $Health Factor=(Collateral Value) × (Collateral Factor)/Debt + Accrued Interest$
+- This calculation uses:
+  - Latest oracle prices for each collateral and borrowed asset.
+  - Protocol-defined collateral factors (determined per asset or vault).
+  - Up-to-date record of all deposited assets, borrowed amounts, and accrued interest (all from PoC).
+
+**2. Liquidation Trigger**
+
+- Liquidation is triggered automatically when a user’s health factor falls below a protocol-defined liquidation threshold—for example, an LTV of 75% or a minimum health factor of 1.1.
+- Triggers occur due to:
+  - A drop in collateral value (market price movement)
+  - Increase in borrowed amount (through accrued interest)
+
+**3. After Liquidation**
+
+- The user’s position is re-evaluated:
+  - Any excess collateral remaining after all debts/interest/liquidation incentives are repaid remains in the user’s vault.
+- Liquidation events are logged on-chain for full auditability, and updates are instantly reflected in the user’s PoC record.

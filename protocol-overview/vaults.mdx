@@ -3,3 +3,20 @@ title: "Vaults"
 description: "Understanding the vault system and asset management"
 icon: "vault"
 ---
+
+Vaults are the system’s foundation. They securely hold user deposits and implement strategies to generate yield—such as staking, validator rewards, or liquidity provision—depending on the underlying protocol and asset. All deposit and withdrawal activity is transparently recorded, with balances kept accurate at all times.
+
+### How It Works
+
+1. **Deposit & Withdrawal State Sync**
+   - Every time you deposit or withdraw assets, the vault contract securely records those changes on-chain.
+   - Deposited capital is routed to a predefined yield strategy or underlying protocol, and yield accrues according to the vault’s or protocol's logic.
+   - All activity (deposits, withdrawals, rewards) emits events or calls into the Proof-of-Collateral (PoC), ensuring global system state always matches vault balances.
+2. **Yield Accrual in Real-Time**
+   - Your up-to-date balance (principal \+ accrued yield) is always tracked and available for downstream protocol use.
+3. **Transparency & Auditability**
+   - All state transitions are traceable via on-chain logs, enabling easy auditing by dashboards, users, and external protocols.
+   - Vault contract logic ensures that no asset or yield “drifts”—balances are instantly pushed to PoC after each action.
+
+**In Summary:**\
+Vaults are the entry point for collateral—keeping deposits safe, productive, and always synced with downstream protocol components via real-time, on-chain accounting.

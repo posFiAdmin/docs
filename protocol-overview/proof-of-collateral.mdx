@@ -4,32 +4,33 @@ description: "Technical implementation of collateral verification"
 icon: "credit-card"
 ---
 
+Proof-of-Collateral, a ERC 721 NFT is the user's on-chain accounting system and the backbone of composable collateralization. It continuously tracks, for every user:
 
-## How It Works
+- Total vault deposits and their types,
+- Accrued (but not yet claimed) yield,
+- Any outstanding borrowing or leveraged positions,
+- The real-time net collateral eligible for new activity.
 
-## 1. Real-Time State Tracking
+**Key functions:**
 
-- Whenever you deposit, withdraw, generate yield, borrow, or repay, those actions immediately update your PoC via direct contract calls or event-driven state changes.
-- The PoC object contains, for each account:
-  - Collateral (per asset type and value)
-  - Yield owed or accrued
-  - Active borrows and interest
-  - Calculated health factor and available borrowing/leverage power
+- **State engine:** All borrow, repay, withdraw, or leverage actions are instantly reconciled and validated via the PoC system. Users can never become “over-collateralized” due to stale data, and the protocol can enforce liquidation or risk caps with precision.
+- **Composability point:**
+  - PoC acts as the single source of truth for anyone in the wider DeFi ecosystem wanting to verify a user’s collateral state.
+  - Partner protocols (on Berachain or, via relayer, on other chains) can reference PoC state to accept users’ positions as collateral—with no need for additional bridges or token wrappers.
 
-## 2. Central Logic for All Protocol Operations
+### How It Works
 
-- All protocol rules—such as maximum borrow amounts, withdrawal limits, and liquidation triggers—are checked by referencing your current PoC state.
-- You cannot circumvent risk controls by acting through different contracts, as all operations consolidate to your live PoC record.
+1. **Live State Tracking**
+   - On every deposit, withdrawal, yield event, borrow, or repay, PoC state is updated immediately via contract calls or emitted events.
+   - PoC holds: asset balances, yield, outstanding borrows, and a computed health factor for every user.
+2. **Core Logic for Eligibility & Risk**
+   - All maximum borrow limits, withdrawal safety checks, and liquidation triggers are enforced using your current PoC state—no operation proceeds if it would make your account unsafe.
+   - All actions across the protocol (even from different apps or integrations) funnel through PoC (with relayers), guaranteeing no “side channel” or hidden risk buildup.
+3. **External Integration & Composability**
+   - Protocols inside and outside Positions can programmatically integrate PoC—via relayer sync—for real-time collateral eligibility.
+4. **Atomic Security**
+   - Any update to PoC is either fully completed (commit) or reverts if it fails any check—ensuring integrity even in the face of errors, rapid price changes, or relay lags.
+   - Liquidations, risk checks, and withdrawals always use the live PoC, never stale data.
 
-## 3. External Queries and Composability
-
-- Any integrated protocol (on the native chain or cross-chain via relayer infrastructure) can query the PoC to validate collateral balances, debt levels, or yield—providing seamless composability for margin, lending, trading, or other DeFi activities.
-- There’s no need for additional proofs or off-chain trust; the PoC is a permissionless “oracle” for your position health.
-
-## 4. Security and Precision
-
-- All PoC updates either finalize or revert atomically with their underlying operation. This ensures that deposition, borrowing, and withdrawal cannot drift or desynchronize with position eligibility.
-- System risk checks are tied entirely to PoC: liquidation is fast, accurate, and only ever impacts the affected user’s positions.
-
-In summary:\
-Positions Finance, powered by its Proof-of-Collateral system, enables productive assets to serve as live, composable collateral wherever DeFi integration is possible. Eligibility, risk, and operations are determined solely by real, protocol-driven, up-to-date asset tracking—making capital use efficient, portable, and secure for all ecosystem participants.
+**In Summary:**\
+PoC is the protocol’s core accounting and control layer—a canonical, atomic record of all collateral and risk.
