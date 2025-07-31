@@ -13,7 +13,7 @@ Liquidation is a critical safeguard in Positions Finance, protecting both the pr
 - The protocol continually calculates a health factor for each user using their latest Proof-of-Collateral (PoC) data.
 - Health factor is a real-time metric:
 
-  $Health Factor=(Collateral Value) × (Collateral Factor)/Debt + Accrued Interest$
+  $Health Factor =    (Σ (Collateral_i × Price_i × Liquidation Threshold_i)) ÷ (Σ (Debt_i × Price_i))$
 - This calculation uses:
   - Latest oracle prices for each collateral and borrowed asset.
   - Protocol-defined collateral factors (determined per asset or vault).
