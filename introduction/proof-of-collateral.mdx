@@ -4,3 +4,47 @@ description: "Understanding the Composable Collateral Mechanism"
 icon: "credit-card"
 ---
 
+## What It Is –
+
+Proof-of-Collateral (PoC) is the system’s core: a single on-chain state (as a NFT) that tracks, per user, deposited assets, accrued yield, outstanding borrowings, and total collateral eligibility. It acts as a live, programmatically verifiable record—used by the protocol and by external integrations to determine exactly what a user can do at any given moment.
+
+### Whenever you make a deposit into a supported vault:
+
+- The Proof of Collateral (PoC) record is instantly updated to show your new balance, including principal and any yield already earned.
+- This information isn’t just for the main protocol—external apps or DeFi protocols can also “read” your PoC state to check how much collateral you really have, and whether you’re eligible to borrow more or open leveraged positions.
+- Every borrow, leverage, repayment, or withdrawal recalculates your PoC state, ensuring the system always knows your exact collateral, risk, and eligibility.
+
+### **Why it matters:**
+
+Instead of relying on scattered balances or multiple wallets, Proof of Collateral offers a unified, always-current collateral status that you—and every protocol in the ecosystem, on any chain—can trust and use for new actions.
+
+## \*\*In Layman’s Terms – \*\*Web2 Analogy
+
+**Imagine your relationship with a traditional bank:**
+
+- **“Fixed Deposit (FD)” Account aka "Vaults":**\
+  You put money into a fixed deposit (locked savings account) to earn interest. Normally, you can’t use that locked money for anything else until the FD matures.
+- **“Collateral Certificate” aka "Proof-of-Collateral":**\
+  Now imagine your bank issues you a secure, real-time electronic certificate that always shows:
+  - Exactly how much you have locked in FDs,
+  - All the interest you’ve earned so far,
+  - Any loans you’ve taken out using your FDs as collateral,
+  - Your remaining borrowing capacity.
+- **Borrowing or Using Collateral Elsewhere:**\
+  Let’s say another financial product (like a loan app or investment platform) accepts this certificate. Instead of making you unlock the FD or transfer money, the other app simply “checks” your up-to-date certificate online, and if you have enough locked value, allows you to borrow or invest right away—with no duplicate deposits.
+- **Automatic Updates and Safety:**\
+  Every time you deposit more, earn interest, borrow, repay, or want to make new moves, the certificate instantly updates, and any system using it knows your exact financial standing. If your position gets risky (say, borrowed too much or your collateral’s value drops), the system may restrict further activity or auto-repay your loans by using your FDs—protecting everyone.
+- **No Manual Intervention Needed:**\
+  The whole process is automated and can be checked by any integrated service, with no banker, paperwork, or spreadsheets needed.
+
+**How This Mirrors Positions Finance:**
+
+- Your “collateral certificate” is like the Proof of Collateral—a live, tamper-proof record of your locked DeFi assets.
+- Anyone (including integrated DeFi protocols) can see your eligibility, risk, and collateral without you moving funds.
+- Borrowing, leveraging, and repayments are all immediately reflected, just like a modern banking dashboard.
+- If you attempt to over-borrow or withdraw more than is safe, the system automatically blocks the action or protects itself—no manual review required.
+
+**In summary:**\
+Just as a real-time, universal FD certificate in Web2 would let you use your locked savings for new financial products without all the friction, Proof of Collateral unlocks the value of locked DeFi assets, letting you use them everywhere securely and transparently.
+
+## 

@@ -3,3 +3,33 @@ title: "Proof of Collateral System"
 description: "Technical implementation of collateral verification"
 icon: "credit-card"
 ---
+
+
+## How It Works
+
+## 1. Real-Time State Tracking
+
+- Whenever you deposit, withdraw, generate yield, borrow, or repay, those actions immediately update your PoC via direct contract calls or event-driven state changes.
+- The PoC object contains, for each account:
+  - Collateral (per asset type and value)
+  - Yield owed or accrued
+  - Active borrows and interest
+  - Calculated health factor and available borrowing/leverage power
+
+## 2. Central Logic for All Protocol Operations
+
+- All protocol rules—such as maximum borrow amounts, withdrawal limits, and liquidation triggers—are checked by referencing your current PoC state.
+- You cannot circumvent risk controls by acting through different contracts, as all operations consolidate to your live PoC record.
+
+## 3. External Queries and Composability
+
+- Any integrated protocol (on the native chain or cross-chain via relayer infrastructure) can query the PoC to validate collateral balances, debt levels, or yield—providing seamless composability for margin, lending, trading, or other DeFi activities.
+- There’s no need for additional proofs or off-chain trust; the PoC is a permissionless “oracle” for your position health.
+
+## 4. Security and Precision
+
+- All PoC updates either finalize or revert atomically with their underlying operation. This ensures that deposition, borrowing, and withdrawal cannot drift or desynchronize with position eligibility.
+- System risk checks are tied entirely to PoC: liquidation is fast, accurate, and only ever impacts the affected user’s positions.
+
+In summary:\
+Positions Finance, powered by its Proof-of-Collateral system, enables productive assets to serve as live, composable collateral wherever DeFi integration is possible. Eligibility, risk, and operations are determined solely by real, protocol-driven, up-to-date asset tracking—making capital use efficient, portable, and secure for all ecosystem participants.
