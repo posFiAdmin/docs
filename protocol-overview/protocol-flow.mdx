@@ -1,0 +1,67 @@
+---
+title: "Protocol Flow"
+description: "Help understand the lifecycle of interacting with Positions Finance"
+---
+
+This section describes, end-to-end, the lifecycle of interacting with Positions Finance as a composable collateral protocol. Each step outlines how assets enter the system, become productive collateral, and are managed for liquidity, leverage, and risk. It serves as both a conceptual and technical guide.
+
+## **1. Depositing Assets into Vaults**
+
+- **User Action**:\
+  The user selects an approved vault (e.g., a Berachain Reward Vault) and deposits a supported asset.
+- **Protocol Effect**:
+  - The vault contract records the deposit, tracks balances, and sets accrual for protocol-approved rewards/yield mechanisms.
+  - Immediately, the user’s Proof-of-Collateral (PoC) record is updated, reflecting the additional principal and any earned yield. This is the real-time authoritative statement of the user’s collateral within the protocol.
+- **Result**:\
+  The original assets remain in the vault, continue earning rewards, and the user’s updated PoC is now available to present as collateral throughout the system.
+
+## **2. Collateral Becomes Usable**
+
+- **User View**:
+  - The deposited assets (and any accrued yield) are now reflected as “available collateral” in the user dashboard.
+  - The user does NOT need to unstake, wrap, or shift assets further.
+- **Protocol View**:
+  - PoC is the single source of truth for what the user can borrow against. Vaults and PoC stay in sync automatically—any addition/removal is mirrored.
+  - This up-to-date collateral can be checked by the protocol itself and by external, integrated protocols (including on other chains via relayer).
+
+## **3. Borrowing Against Collateral**
+
+- **User Action**:\
+  The user requests to borrow a supported asset, specifying the amount.
+- **Protocol Effect**:
+  - The borrowing module queries PoC for the user’s current collateral and outstanding debts.
+  - Using price feeds and risk models, PoC computes borrowing limits and evaluates post-borrow health.
+  - If safe, the borrow is executed: PoC is updated with the new debt, and the requested asset is sent to the user. If not, the transaction fails.
+  - Interest on borrowed assets starts accruing immediately.
+- **Result**:\
+  User has new liquid assets (while their original vault deposit still earns yield). The risk status is tracked live in the PoC and is always visible.
+
+## **4. Withdrawing Assets**
+
+- **User Action**:
+  - User requests either a partial or full withdrawal of their vault assets.
+- **Protocol Controls**:
+  - Before processing, protocol checks PoC state to ensure all outstanding debts will remain safely collateralized post-withdrawal.
+  - If not, withdrawal fails and user must first repay debt or adjust collateral.
+  - Withdrawal, when successful, reduces the user’s PoC collateral in real time.
+- **Result**:\
+  User regains liquidity; collateral availability (and therefore, possible borrow/usage power) decreases accordingly.
+
+## **5. Liquidation Monitoring & Handling**
+
+- **Continuous Operation**:
+  - Protocol continually monitors each user’s PoC health factor (collateral vs. debt, with live price feeds).
+  - If collateral value falls or debt grows so the health factor drops below the threshold, the protocol can immediately trigger liquidation.
+  - Liquidation forcibly repays debt by seizing/selling collateral, protecting the system and lenders.
+- **User Responsibility**:
+  - Users must monitor their health factor (visible via dashboard) and act promptly on protocol alerts.
+  - Unattended, unhealthy positions will be liquidated automatically, and only leftover collateral (after debt repayment) is returned.
+
+## **6. Composability—Using Your Collateral Elsewhere**
+
+- **For the User**:\
+  Because PoC is always current and on-chain, integrated protocols—money markets, perps, options, on Berachain or other chains—can trustfully read your collateral state and accept it as security, without requiring new deposits or extra capital.
+
+<Info>
+  More details will be added for protocols and developers to build on top of Positions' Proof-of-Collateral.
+</Info>

@@ -22,20 +22,13 @@
             ]
           },
           {
-            "group": "Getting Started",
-            "pages": [
-              "getting-started/turn-assets-into-collateral",
-              "getting-started/borrow-money-market",
-              "getting-started/leverage-loops"
-            ]
-          },
-          {
             "group": "Protocol Overview",
             "pages": [
+              "protocol-overview/protocol-flow",
               "protocol-overview/vaults",
+              "protocol-overview/proof-of-collateral",
               "protocol-overview/lend-borrow-market",
               "protocol-overview/leverage-loops",
-              "protocol-overview/proof-of-collateral",
               "protocol-overview/liquidation-mechanics"
             ]
           },
