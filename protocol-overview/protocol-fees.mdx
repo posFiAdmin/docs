@@ -1,0 +1,52 @@
+---
+title: "Fees"
+description: "Understanding protocol fees to using the platform efficiently.  "
+icon: "badge-dollar-sign"
+---
+
+Positions Finance applies minimal, transparent fees to ensure protocol sustainability, reward contributors, and support ongoing development. Here's a breakdown of all current fee structures across the platform:
+
+## Vault Rewards Fee
+
+Whenever you earn yield from staking in a **Vault** (e.g., _Infrared Finance_ or _Berachain Reward Vaults_), a **5% fee** is automatically deducted from the rewards **at the time of claiming**.
+
+- **No fees on principal** — only on yield earned.
+- Fee supports protocol operations and treasury growth.
+- Example: If you earned 100 tokens, 95 go to you, and 5 to the protocol.
+
+## Lend/Borrow Market Fees
+
+### For Lenders:
+
+When you supply assets to a lending pool, your yield comes from interest paid by borrowers. The protocol charges 20% fees that are deducted **from borrower payments**—not from your deposits. 
+
+<Note>
+  **Note**: The **20% margin** affects borrower costs, not your deposit directly. What you see as **Supply APR is net after margin**.
+</Note>
+
+### Borrowing Interest Rate Model
+
+Borrowing rates on Positions Finance are **dynamic** — they adjust based on how much of the available liquidity in a lending pool is being used. Additionally, a **0.1% opening fee** is charged on the borrowed principal (one-time per borrow action).
+
+$Utilization = (Borrowed Liquidity) / (Total Supplied Liquidity)$
+
+- As utilization increases, **interest rates rise**.
+- This encourages balanced supply-borrow behavior and protects liquidity during high demand.
+
+| Utilization % | Borrow APY behavior             |
+| :------------ | :------------------------------ |
+| Low           | Low, flat APY                   |
+| Mid (~80%)    | Gradual increase                |
+| High (\>90%)  | Sharp spike in APY to curb risk |
+
+### Fee Structure Summary
+
+| **Fee Type**           | **Rate** | **Applies To**                                 |
+| :--------------------- | :------- | :--------------------------------------------- |
+| **Lending Yield Cut**  | 20%      | Taken from borrower interest before lender APR |
+| **Borrow Opening Fee** | 0.1%     | One-time fee on loan amount                    |
+| **Vault Rewards Tax**  | 5%       | Taken from vault yield, not principal          |
+
+<Info>
+  _The protocol fee structure is subject to governance and may be updated as products and integrations evolve. Always check the UI or documentation for the latest rates._
+</Info>

@@ -3,3 +3,35 @@ title: "Borrow from Money Market"
 description: "How to borrow assets from the money market."
 icon: "money-bill-transfer"
 ---
+
+After depositing into vaults, or supplying liquidity to lending pools, you can borrow assets using your assets as collateral.
+
+### Step 1: Headover to Lend/Borrow
+
+1. Go to https://beta.positions.finance/lend-borrow
+2. Switch to Borrow mode.
+3. Select the token to borrow.
+4. Input the desired amount (must be within your borrowing limit).
+5. Confirm transaction.
+
+<Note>
+  **Notes on Fees**: A **0.1% opening fee** is charged on the borrowed amount
+</Note>
+
+![image.png](/images/image.png)
+
+### Risk Management
+
+- If the value of your collateral drops or your borrowed amount exceeds the threshold, your position could be **partially or fully liquidated**
+- Keep your **Health Factor** above 1.1 for safety
+- Use the **Portfolio** tab to monitor your positions
+
+### Borrow Example
+
+If you staked \$1,000 worth of `WBERA-iBERA` into Infrared Vault (LTV 70%):
+
+- You can borrow up to **\$700**
+- Borrowing \$500 in USDC will cost:
+  - **0.1% Opening Fee** = \$0.50
+  - **Borrow APY** (assume 12%) applies until repaid
+- You can repay this loan anytime by heading over to **Portfolio** section.

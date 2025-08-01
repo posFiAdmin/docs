@@ -29,6 +29,7 @@
               "protocol-overview/proof-of-collateral-mechanism",
               "protocol-overview/lend-borrow-market",
               "protocol-overview/leverage-loops",
+              "protocol-overview/protocol-fees",
               "protocol-overview/liquidation-mechanics"
             ]
           },
@@ -75,8 +76,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Open App",
+      "href": "https://beta.positions.finance/"
     }
   },
   "contextual": {

@@ -2,3 +2,60 @@
 title: "Manage Your Portfolio"
 description: "How to manage your vault deposits, repaying loans, withdrawing liquidity, or claiming rewards."
 ---
+
+The **Portfolio Dashboard** is your command center on Positions. It gives you real-time insights into deposits, borrowings, net APY, health factor, and Proof-of-Collateral—all in one place.
+
+![image.png](/images/image.png)
+
+### a. Open the Portfolio Tab
+
+Go to: https://beta.positions.finance/portfolio/
+
+Here, you’ll see:
+
+- **Current Balance:** Total value across all deposits and borrowings.
+- **Total Deposits:** Combined value from Vaults and Lending Pools.
+- **Total Borrowings:** All active borrow positions (Borrowing \+ Looping).
+- **Net APY:** Your overall performance (positive or negative) after fees.
+- **Portfolio LTV:** Weighted Loan-to-value ratio across all collateral.
+- **Health Factor:** A live indicator of risk level (color-coded meter).
+
+<Info>
+  A Health Factor **below 1.0** means you are eligible for liquidation. Try to stay **above 1.5** for safety.
+</Info>
+
+### b. Track Your Deposits
+
+Under **Your Deposits**, you'll see:
+
+- Which vaults and lending pools your assets are in.
+- Asset names and source vaults (e.g., _Infrared Finance_, _Berachain Reward Vaults_).
+- The APY you're earning.
+- Claimable rewards per position.
+
+**Example:**\
+In your dashboard:
+
+- You’ve staked **iBERA-wBERA** in Berachain Reward Vaults at **18.89% APY**.
+- You’ve also staked **WBERA-iBERA** in Infrared at **4.5% APY**.
+
+Use the **Claim Reward** button to collect yields manually. Or use **Unstake** to remove assets when needed (if not locked or being used as collateral).
+
+### c. Track your Borrowings
+
+Under **Your Borrowings**, view:
+
+- The assets you’ve borrowed.
+- The amount borrowed.
+- The interest accured from borrowed liquidity.
+- Options to repay or unwind via the **Repay** path.
+
+💡 Notes: Borrowed assets count against your Health Factor, so track closely.
+
+### d. Monitor and Adjust
+
+Use the dashboard to:
+
+- **Track overall performance** (Net APY may go negative if borrow rates exceed earn rates).
+- **Avoid liquidation risks** by repaying, withdrawing excess borrow, or adding more collateral.
+- **Check your PoC (Proof-of-Collateral)** status directly from the dashboard or click **“View more on PoC”**.
