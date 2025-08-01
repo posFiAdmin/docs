@@ -70,8 +70,12 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:team@positions.finance"
+        "label": "Website",
+        "href": "https://positions.finance/"
+      },
+      {
+        "label": "Twitter",
+        "href": "https://x.com/positionsfi/"
       }
     ],
     "primary": {
