@@ -34,6 +34,15 @@
             ]
           },
           {
+            "group": "Getting Started",
+            "pages": [
+              "getting-started/borrow-liquidity",
+              "getting-started/deposit-to-vaults",
+              "getting-started/earn-yields",
+              "getting-started/manage-portfolio"
+            ]
+          },          
+          {
             "group": "Resources",
             "pages": [
               "resources/audits",
