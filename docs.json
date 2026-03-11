@@ -16,7 +16,7 @@
           {
             "group": "Introduction",
             "pages": [
-              "introduction/what-is-positions-finance",
+              "introduction/overview",
               "introduction/proof-of-collateral",
               "introduction/why-use-positions-finance"
             ]
