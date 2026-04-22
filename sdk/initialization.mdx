@@ -1,0 +1,18 @@
+---
+title: "Initialization"
+description: "Initialize PositionsSDK with an EIP-1193 provider"
+icon: "plug"
+---
+
+The `PositionsSDK` is the main entry point. It requires an [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)
+compatible provider (like `window.ethereum` from Metamask, or a provider from Wagmi/RainbowKit).
+
+```typescript
+import {PositionsSDK} from "@positions/sdk";
+import {type EIP1193Provider} from "viem";
+
+// Example with window.ethereum
+const sdk = new PositionsSDK(window.ethereum as EIP1193Provider);
+
+// The SDK automatically handles account changes from the provider.
+```

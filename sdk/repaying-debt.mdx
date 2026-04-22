@@ -1,0 +1,15 @@
+---
+title: "Repaying Debt"
+description: "Repay borrowed assets to improve health factor"
+icon: "hand-holding-dollar"
+---
+
+Repay borrowed assets to improve account health.
+
+Like deposits, approval is handled automatically if needed.
+
+```typescript
+const repayAmount = 0.001;
+const tx = await sdk.repayDebt(wbtcAddress, repayAmount);
+console.log("Repayment transaction:", tx);
+```

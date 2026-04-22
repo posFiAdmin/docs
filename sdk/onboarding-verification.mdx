@@ -1,0 +1,60 @@
+---
+title: "Onboarding & Verification"
+description: "Protocol onboarding flow before deposit and borrow"
+icon: "user-check"
+---
+
+Before users can interact with the protocol (Deposit/Borrow), they must go through the onboarding flow: **Invite Code
+** -> **Mint NFT**.
+
+## Invite System
+
+Access is currently restricted to users with a valid invite code.
+
+1. **Check Access**: Determine if the user has already redeemed an invite.
+2. **Validate Code**: Check if an input code is valid.
+3. **Claim Code**: Redeem the code to grant access.
+
+```typescript
+// 1. Check if user already has access
+const access = await sdk.hasAccess();
+
+if (!access) {
+    const inviteCode = "123456"; // User input
+
+    // 2. Validate the code
+    const check = await sdk.checkInviteCode(inviteCode);
+
+    if (check.valid) {
+        try {
+            // 3. Claim the code
+            await sdk.claimInviteCode(inviteCode);
+            console.log("Access granted!");
+        } catch (err) {
+            console.error("Failed to claim code:", err);
+        }
+    }
+}
+```
+
+## NFT Verification & Minting
+
+The **Positions NFT** acts as the user's identity and collateral manager within the protocol.
+
+1. **Check for NFT**: See if the connected wallet holds the NFT.
+2. **Mint NFT**: If not, mint one.
+
+```typescript
+// 1. Get NFT details
+const nft = await sdk.getNFT();
+
+if (!nft) {
+    console.log("User needs to mint an NFT.");
+
+    // 2. Mint the NFT (Triggers a wallet transaction)
+    const txHash = await sdk.mint();
+    console.log("Mint transaction sent:", txHash);
+} else {
+    console.log("User NFT ID:", nft.token.id);
+}
+```

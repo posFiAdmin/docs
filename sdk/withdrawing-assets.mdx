@@ -1,0 +1,41 @@
+---
+title: "Withdrawing Assets"
+description: "Queue and complete lending pool withdrawals"
+icon: "arrow-up-from-line"
+---
+
+Withdrawals are a **two-step process**: **Queue -> Complete**.
+
+## Step 1: Queue Withdrawal
+
+```typescript
+const amountToWithdraw = 50;
+const txQueue = await sdk.queueWithdraw(usdcAddress, amountToWithdraw);
+console.log("Withdrawal queued:", txQueue);
+```
+
+## Step 2: Complete Withdrawal
+
+Once the protocol (or backend keeper) approves the withdrawal, the user must finalize it on-chain. You can find approved
+requests by filtering transactions.
+
+```typescript
+// 1. Find approved withdrawal requests
+const transactions = await sdk.getTransactions({
+    type: "withdraw",
+    status: "approved"
+});
+
+// 2. Complete them
+for (const tx of transactions.data) {
+    if (tx.platform === "lending-pool") {
+        console.log(`Completing withdrawal for ${tx.amount} ${tx.asset}...`);
+
+        const txComplete = await sdk.completeWithdraw(
+            tx.asset as Address,
+            tx.requestId!
+        );
+        console.log("Withdrawal completed:", txComplete);
+    }
+}
+```

@@ -1,0 +1,22 @@
+---
+title: "Borrowing"
+description: "Submit asynchronous borrow requests with EIP-712 signatures"
+icon: "money-bill-transfer"
+---
+
+Borrowing is an **asynchronous** process that uses **EIP-712** signatures:
+
+1. User signs borrow request
+2. Backend validates collateral and health factor
+3. Backend fulfills on-chain and sends funds
+
+```typescript
+const wbtcAddress = "0x1BFD67037B42CfDJ627031464303398BF7d6607";
+const borrowAmount = 0.001;
+
+// Triggers a signature request in the wallet
+const tx = await sdk.borrowRequest(wbtcAddress, borrowAmount);
+console.log("Borrow request signed and submitted:", tx);
+
+// You can monitor the status via sdk.getTransactions({ type: "borrow" })
+```

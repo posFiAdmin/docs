@@ -1,0 +1,22 @@
+---
+title: "Portfolio Health"
+description: "Get health factor, LTV, and position breakdowns"
+icon: "heart-pulse"
+---
+
+Get a comprehensive overview of the user's financial position, including Health Factor and Loan-to-Value (LTV).
+
+```typescript
+const portfolio = await sdk.getPortfolio();
+
+console.log("Total Deposits (USD):", portfolio.deposit.total);
+console.log("Total Debt (USD):", portfolio.borrow.total);
+console.log("Health Factor:", portfolio.healthFactor); // Should be > 1.0
+console.log("LTV:", portfolio.LTV, "%");
+
+// Inspect individual assets
+const usdcData = portfolio.deposit.assets[usdcAddress];
+if (usdcData) {
+    console.log("USDC Deposited:", usdcData.amount);
+}
+```

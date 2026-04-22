@@ -1,0 +1,20 @@
+---
+title: "Historical Data"
+description: "Retrieve time-series data for charts and analytics"
+icon: "database"
+---
+
+Retrieve data for charting portfolio performance or protocol usage.
+
+```typescript
+// Get daily transaction data
+const graphData = await sdk.getTransactionGraphData({
+    interval: "day"
+});
+
+// Map for a charting library
+const chartData = graphData.map(point => ({
+    date: point.date,
+    volume: point.depositAmount + point.borrowAmount
+}));
+```

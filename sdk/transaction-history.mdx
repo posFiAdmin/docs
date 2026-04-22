@@ -1,0 +1,20 @@
+---
+title: "Transaction History"
+description: "Fetch paginated user transaction history"
+icon: "clock-rotate-left"
+---
+
+Fetch a paginated history of all user interactions (Deposits, Withdrawals, Borrows).
+
+```typescript
+const history = await sdk.getTransactions({
+    page: 1,
+    limit: 10,
+    // Optional filters
+    // type: 'deposit',
+    // status: 'completed'
+});
+
+console.log(`Found ${history.meta.totalItems} transactions.`);
+console.table(history.data);
+```

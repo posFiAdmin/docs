@@ -1,0 +1,22 @@
+---
+title: "Authentication"
+description: "Authenticate using Sign-In with Ethereum (SIWE)"
+icon: "key"
+---
+
+The protocol uses **Sign-In with Ethereum (SIWE)** for secure authentication.
+
+The SDK automatically handles login when you attempt to perform a protected action (like minting or depositing).
+However, you can also manage the session manually.
+
+```typescript
+// Explicitly login (signs a SIWE message)
+await sdk.login();
+
+// Check if a session exists
+const session = await sdk.getSession();
+
+if (session) {
+    console.log("User is authenticated:", session.user);
+}
+```

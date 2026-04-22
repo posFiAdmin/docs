@@ -1,0 +1,21 @@
+---
+title: "Depositing Assets"
+description: "Deposit ERC-20 assets into the lending pool"
+icon: "arrow-down-to-line"
+---
+
+Deposits an asset (e.g. USDC) into the lending pool.
+
+The SDK automatically handles `approve` transactions if allowance is insufficient.
+
+```typescript
+const usdcAddress = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174";
+const amountToDeposit = 100;
+
+try {
+    const tx = await sdk.deposit(usdcAddress, amountToDeposit);
+    console.log("Deposit successful:", tx);
+} catch (err) {
+    console.error("Deposit failed:", err);
+}
+```

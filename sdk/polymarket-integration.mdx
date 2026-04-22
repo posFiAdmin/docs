@@ -1,0 +1,56 @@
+---
+title: "Polymarket Vault Interactions"
+description: "Deposit outcome tokens and manage Polymarket vault withdrawals"
+icon: "binoculars"
+---
+
+Interact with the Polymarket Vault to deposit outcome tokens and manage withdrawals.
+
+## Deposit Polymarket Token
+
+Deposits a Polymarket outcome token (ERC1155) into the vault. This automatically handles the `setApprovalForAll`
+transaction if needed.
+
+```typescript
+const conditionId = "0x..."; // Market condition ID
+const tokenId = 123456789n; // Outcome token ID
+const amount = 100; // Amount to deposit
+const isNegRisk = false; // Whether the market is negative risk
+
+const tx = await sdk.depositPolymarketToken(conditionId, tokenId, amount, isNegRisk);
+console.log("Deposit transaction:", tx);
+```
+
+## Withdraw Polymarket Token
+
+Withdrawals from the Polymarket Vault also follow a **two-step process**: **Request** -> **Claim**.
+
+### Step 1: Request Withdrawal
+
+```typescript
+const amountToWithdraw = 50;
+const txRequest = await sdk.requestPolymarketWithdrawal(tokenId, amountToWithdraw);
+console.log("Withdrawal requested:", txRequest);
+```
+
+### Step 2: Claim Withdrawal
+
+After the withdrawal request is processed (and the finalized request ID is available), you can claim the funds.
+
+```typescript
+// 1. Find approved withdrawal requests
+const transactions = await sdk.getTransactions({
+    type: "withdraw",
+    status: "approved"
+});
+
+// 2. Claim them
+for (const tx of transactions.data) {
+    if (tx.platform === "polymarket") {
+        console.log(`Claiming withdrawal for ${tx.amount} (Request ID: ${tx.requestId})...`);
+
+        const txClaim = await sdk.claimPolymarketWithdrawal(BigInt(tx.requestId!));
+        console.log("Withdrawal claimed:", txClaim);
+    }
+}
+```

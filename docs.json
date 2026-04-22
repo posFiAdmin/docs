@@ -41,6 +41,39 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "SDK",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "sdk/installation",
+              "sdk/initialization",
+              "sdk/authentication",
+              "sdk/onboarding-verification"
+            ]
+          },
+          {
+            "group": "Core Integartion",
+            "pages": [
+              "sdk/polymarket-integration",
+              "sdk/depositing-assets",
+              "sdk/withdrawing-assets",
+              "sdk/borrowing",
+              "sdk/repaying-debt",
+              "sdk/monitoring-apy"
+            ]
+          },
+          {
+            "group": "Monitoring & Analytics",
+            "pages": [
+              "sdk/portfolio-health",
+              "sdk/transaction-history",
+              "sdk/historical-data"
+            ]
+          }
+        ]
       }
     ],
     "global": {

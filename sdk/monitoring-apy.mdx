@@ -1,0 +1,14 @@
+---
+title: "Monitoring APY"
+description: "Read supply and borrow APY for supported assets"
+icon: "chart-line"
+---
+
+Get current supply and borrow APY for an asset.
+
+```typescript
+const {depositApy, borrowApy} = await sdk.apy(usdcAddress);
+
+console.log(`Supply APY: ${(depositApy * 100).toFixed(2)}%`);
+console.log(`Borrow APY: ${(borrowApy * 100).toFixed(2)}%`);
+```
